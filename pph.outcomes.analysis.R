@@ -217,5 +217,6 @@ collab_sum_hospital_type_ra<-collab%>%
 intensity <- read.csv("qi_measures_05_05_2016.csv", header = TRUE)
 intensity <- intensity[intensity$Hospital.Name!="Saint Peter's University Hospital",]
 
+#calculating mean, sd, 25th, median, 75th percentiles
 intensity_hours<-intensity%>%
   summarise(mean=mean(Q30, na.rm=TRUE), sd=sd(Q30, na.rm=TRUE), `25%`=quantile(Q30, probs=0.25, na.rm=TRUE), median=median(Q30, na.rm=TRUE), `75%`=quantile(Q30, probs=0.75, na.rm=TRUE), min=min(Q30, na.rm=TRUE), max=max(Q30, na.rm=TRUE))
